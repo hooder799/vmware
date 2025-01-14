@@ -1,0 +1,20 @@
+name: Run VM in GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  vm-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Run Commands on VM
+        run: |
+          echo "Running on a VM"
+          uname -a
+          sudo apt update
+          sudo apt install -y curl
